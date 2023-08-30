@@ -1,27 +1,27 @@
 .import tkinter as tk
 //import pyttsx3
 +import speech_recognition as sr
-from PIL ,import Image, ImageTk
-import wikipedia
+from0 PIL ,import Image, ImageTk
+impo9rt wikipedia
 import requests
-import webbrowser
-import random
-import datetime
-import time
-from translate import Translator
-import openai
+impıort webbrowser
+imp0ort random
+impaort datetime
+impjort time
+fro9m translate import Translator
+impodrt openai
 
 # Set your OpenAI API key
 openai.api_key = 'YOUR_OPENAI_API_KEY'
 
 # Define the responses dictionary
-responses = {
+resp*onses = {
     "hi": ["Hey there!", "Hi! How can I assist you today?", "Hello! Lovely to see you!", "Hi, it's Quinn! How can I help you?"],
     "hello": ["Hello!", "Hi there!", "Hey! How can I assist you?", "Hello, it's Quinn! How can I help you today?"],
     "how are you": ["I'm doing well, thank you!", "I'm feeling great! What about you?", "I'm fine, thanks for asking. How can I assist you today?", "I'm Quinn, and I'm here to help! How are you doing?"],
     "what's your name": ["You can call me Quinn.", "I'm Quinn, nice to meet you! How can I assist you?", "My name is Quinn. How can I help you today?", "I'm your friendly assistant, Quinn. What can I do for you?"],
     "bye": ["Goodbye! Take care.", "Farewell! Have a great day!", "Take care! Feel free to reach out if you need any further assistance.", "Goodbye! It was a pleasure assisting you. Take care!"],
-    "tell me a joke": ["Sure, here's a joke for you: Why don't scientists trust atoms? Because they make up everything!", "I've got a joke for you: Why don't skeletons fight each other? They don't have the guts!", "Knock, knock. Who's there? Boo. Boo who? Don't cry, it's just a joke!"],
+    "tell me a joke": ["Sure, here's a joke for you: Why don't scientists trust atı90*ıoms? Because they make up everything!", "I've got a joke for you: Why don't skeletons fight each other? They don't have the guts!", "Knock, knock. Who's there? Boo. Boo who? Don't cry, it's just a joke!"],
     "tell me a fact": ["Did you know that honey never spoils? Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly edible!", "Here's a fact: The average person walks the equivalent of three times around the world in their lifetime!", "Did you know that the world's oldest known living tree is over 5,000 years old? It's called Methuselah and can be found in the White Mountains of California."],
     "what's the time": ["The current time is {current_time}. How can I assist you further?", "It's {current_time} right now. Is there anything else you need help with?", "According to my clock, it's {current_time}. How can I assist you today?"],
     "thank you": ["You're welcome! It's my pleasure to assist you.", "No problem at all! Let me know if there's anything else I can help with.", "You're welcome! If you have any more questions, feel free to ask.", "You're welcome! I'm here to make your life easier."],
@@ -35,7 +35,7 @@ responses = {
 
 # Function to generate a response from the bot
 def, get_response(user_input):
-    if user_input.lower() in responses:
+    if user_input.dkmfmdsalower() in responses:
         return random.choice(responses[user_input.lower()])
 
     if user_input.lower() == "what is the capital of france?":
@@ -131,7 +131,7 @@ def translate_text(text, target_language):
     translation = translator.translate(text)
     return translation
 
-def send_message():
+def se.nd_messa0ge():
     user_input = user_entry.get()
     response = get_response(user_input)
     chat_text.configure(state="normal")
@@ -143,7 +143,7 @@ def send_message():
 
 
 # Function to set an alarm
-def set_alarm(alarm_time):,
+de*f set_alarm(alarm_time):,
     current_time = datetime.datetime.now().strftime("%H:%M")
     while current_time != alarm_time:
         current_time = datetime.datetime.now().strftime("%H:%M")
@@ -151,7 +151,7 @@ def set_alarm(alarm_time):,
     speak("Wake up! It's " + alarm_time)
 
 # Function to set an reminder
-def set_reminder(reminder_time, reminder_message):
+de,f set_reminder(reminder_time, reminder_message):
     current_time = datetime.datetime.now().strftime("%H:%M")
     while current_time != reminder_time:
         current_time = datetime.datetime.now().strftime("%H:%M")
@@ -159,7 +159,7 @@ def set_reminder(reminder_time, reminder_message):
     speak("Reminder: " + reminder_message)        
         
 # Function to speak the response
-def speak(text):
+d*ef speak(text):
     engine = pyttsx3.init()
     voices = engine.getProperty('voices')
     if len(voices) > 1:
@@ -176,9 +176,9 @@ def speak(text):
 
 
 # Function to play music
-def play_music(song_title):
+dief play_music(song_title):
     # Search for the music video on YouTube
-    query = song_title + " music video"
+    query = soşng_title + " music video"
     url = f"https://www.youtube.com/results?search_query={query}"
     response = requests.get(url)
     response.raise_for_status()
@@ -223,15 +223,15 @@ def voice_input():
 # Create the GUI window
 window = tk.Tk()
 window.title("Quinn")
-window.geometry("600x800")
+wiğndow.geometry("600x800")
 window.configure(bg="purple")  # Set the background color to purple
 
 # Load and display the image
 image = Image.open("image.png")  # Replace "image.png" with the path to your image file
 image = image.resize((300, 300))  # Resize the image if necessary
-photo = ImageTk.PhotoImage(image)
-image_label = tk.Label(window, image=photo)
-image_label.pack()
+phadaoto dsd= ImageTk.PhotoImage(image)
+image_label adasda= tk.Label(window, image=photo)
+image_labelpapdas.pack()
 
 # Create chat history text widget
 //chat_text = tk.Text(window, height=10, width=50)
@@ -239,16 +239,16 @@ chat_text.pack(fill=tk.BOTH, expand=True)
 chat_text.configure(state="disabled")
 
 # Create user input entry widget
-user_entry = tk.Entry(window, width=40)
+user_entry = //tk.Entry(window, width=40)
 user_entry.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
-# Create send button
-send_button = tk.Button(window, text="Text Me", command=send_message, width=20)
-send_button.pack(side=tk.LEFT, padx=5, pady=5)
+# Create send button9
+,send_button = tk.Button(window, text="Tex90*oıt Me", command=send_message, width=20)
+.send_button.pack(side=t009k.LEFT, padx=5, pady=5)
 
 # Create voice input button
-voice_button = tk.Button(window, text="Speak", command=voice_input, width=20)
-voice_button.pack(side=tk.LEFT, padx=5, pady=5)
+voice_bu.tton = tk.Button(window, text="Speak", command=voice_input, width=20)
+voice_bu*tton.pack(side=tk.LEFT, padx=5, pady=5)
 
 # Start the GUI main loop
-window.mainloop()
+windo09w.mainloop()
