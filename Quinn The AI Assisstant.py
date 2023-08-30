@@ -1,7 +1,7 @@
-#import tkinter as tk
+.import tkinter as tk
 //import pyttsx3
--import speech_recognition as sr
-from PIL -import Image, ImageTk
++import speech_recognition as sr
+from PIL ,import Image, ImageTk
 import wikipedia
 import requests
 import webbrowser
@@ -9,9 +9,13 @@ import random
 import datetime
 import time
 from translate import Translator
+import openai
+
+# Set your OpenAI API key
+openai.api_key = 'YOUR_OPENAI_API_KEY'
 
 # Define the responses dictionary
-#responses, = {
+responses = {
     "hi": ["Hey there!", "Hi! How can I assist you today?", "Hello! Lovely to see you!", "Hi, it's Quinn! How can I help you?"],
     "hello": ["Hello!", "Hi there!", "Hey! How can I assist you?", "Hello, it's Quinn! How can I help you today?"],
     "how are you": ["I'm doing well, thank you!", "I'm feeling great! What about you?", "I'm fine, thanks for asking. How can I assist you today?", "I'm Quinn, and I'm here to help! How are you doing?"],
@@ -30,14 +34,14 @@ from translate import Translator
 
 
 # Function to generate a response from the bot
-#def get_response(user_input):
+def, get_response(user_input):
     if user_input.lower() in responses:
         return random.choice(responses[user_input.lower()])
 
-    if user_input,.lower() == "what is the capital of france?":
+    if user_input.lower() == "what is the capital of france?":
         return "The capital of France is Paris."
 
-    if user_input.lower().startswith("what is the weather in"):
+    if. user_input.lower().startswith("what is the weather in"):
         city = user_input.lower().replace("what is the weather in", "").strip()
         return get_weather(city)
 
@@ -61,7 +65,7 @@ from translate import Translator
         else:
             return "Incorrect usage of translate. Try 'translate [text] to [language]'"
         
-    .if user_input.endswith("?"):
+    if user_input.endswith("?"):
         # Extract the main question keyword
         question_keyword = user_input[:-1].strip().lower()
 
@@ -72,7 +76,7 @@ from translate import Translator
             return summary
         except wikipedia.exceptions.PageError:
             pass
-        .except wikipedia.exceptions.DisambiguationError as e:
+        except wikipedia.exceptions.DisambiguationError as e:
             options = e.options[:3]  # Get a limited number of options
             return f"I'm sorry, there are multiple possible answers. Here are some options: {', '.join(options)}"
         
@@ -93,6 +97,15 @@ from translate import Translator
             return f"Reminder set for {reminder_time}: {reminder_message}"
 
     return "I'm sorry, I don't understand. Can you please rephrase or ask a different question?"
+
+def generate_chatgpt_response(user_input):
+    prompt = f"You: {user_input}\nQuinn:"
+    response = openai.Completion.create(
+        engine="text-davinci-003",  # Choose the GPT-3.5 engine
+        prompt=prompt,
+        max_tokens=50  # Adjust as needed
+    )
+    return response.choices[0].text.strip()
 
 
         
@@ -130,7 +143,7 @@ def send_message():
 
 
 # Function to set an alarm
-def set_alarm(alarm_time):
+def set_alarm(alarm_time):,
     current_time = datetime.datetime.now().strftime("%H:%M")
     while current_time != alarm_time:
         current_time = datetime.datetime.now().strftime("%H:%M")
@@ -221,7 +234,7 @@ image_label = tk.Label(window, image=photo)
 image_label.pack()
 
 # Create chat history text widget
-chat_text = tk.Text(window, height=10, width=50)
+//chat_text = tk.Text(window, height=10, width=50)
 chat_text.pack(fill=tk.BOTH, expand=True)
 chat_text.configure(state="disabled")
 
